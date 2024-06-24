@@ -57,3 +57,41 @@ Description: Loads an audio file, computes its spectrogram, and displays it usin
 
 
 2. speech_2_convolutions:
+Audio Classification Using Convolutional Neural Networks (CNN)
+This project aims to classify audio files into different categories using a Convolutional Neural Network (CNN). The process involves preprocessing the audio data, augmenting it with background noise, and training a CNN model.
+
+Prerequisites
+Before running the script, make sure to install the required Python libraries, including TensorFlow, Keras, Librosa, scikit-learn, numpy, tqdm, matplotlib, and scipy.
+
+Directory Structure
+Organize your audio files in a directory where each subdirectory represents a label (or class). For example, the main directory could be new_train/, with subdirectories such as bed/, bird/, cat/, etc. Additionally, have a directory for background noise files named _background_noise_/.
+
+Workflow
+Data Preprocessing
+Save MFCC Features to Array: The script first saves the Mel-frequency cepstral coefficients (MFCC) features of the audio files to numpy arrays. This is done for efficient loading and processing later on.
+
+Load Train and Test Sets: The script then loads the training and testing datasets from the saved numpy arrays.
+
+Reshape the Data: The audio data is reshaped to fit the input requirements of the CNN model.
+
+Data Augmentation
+To improve the robustness of the model, background noise is added to the training data. This helps the model generalize better to different audio environments.
+
+Visualize the Data
+Optional code is provided to visualize an example of the augmented training data. This helps in understanding how the data looks after preprocessing and augmentation.
+
+One-Hot Encoding
+The labels (or classes) are converted to one-hot encoded vectors. This is necessary for training the neural network.
+
+Building the CNN Model
+An improved CNN model is built with three convolutional layers, batch normalization, max pooling, dropout layers, and dense layers. This architecture helps in extracting relevant features from the audio data and reduces overfitting.
+
+Compiling and Training the Model
+The model is compiled using categorical crossentropy as the loss function and RMSprop as the optimizer. The model is then trained using the training data, with TensorBoard callbacks for visualization.
+
+Evaluating the Model
+After training, the model is evaluated on the test data to check its accuracy.
+
+Saving the Model
+Finally, the trained model is saved for future use. This allows for easy deployment and reuse without the need to retrain.
+
